@@ -1,0 +1,14 @@
+{
+  "editor.defaultFormatter": "chenglou92.rescript-vscode",
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/*.bs.js": true,
+    "**/*.gen.tsx": true
+  }
+}
