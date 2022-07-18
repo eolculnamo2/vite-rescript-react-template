@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "re:build": "rescript",
+    "re:build-deps": "rescript build -with-deps",
     "re:start": "rescript build -w"
   },
   "dependencies": {
