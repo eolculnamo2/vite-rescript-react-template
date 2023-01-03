@@ -8,7 +8,7 @@ specifiers:
   gentype: ^4.5.0
   react: ^18.2.0
   react-dom: ^18.2.0
-  rescript: ^9.1.4
+  rescript: ^10.0.1
   typescript: ^4.6.4
   vite: ^3.0.0
 
@@ -22,7 +22,7 @@ devDependencies:
   '@types/react-dom': 18.0.6
   '@vitejs/plugin-react': 2.0.0_vite@3.0.0
   gentype: 4.5.0
-  rescript: 9.1.4
+  rescript: 10.0.1
   typescript: 4.7.4
   vite: 3.0.0
 
@@ -790,8 +790,8 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
-  /rescript/9.1.4:
-    resolution: {integrity: sha512-aXANK4IqecJzdnDpJUsU6pxMViCR5ogAxzuqS0mOr8TloMnzAjJFu63fjD6LCkWrKAhlMkFFzQvVQYaAaVkFXw==}
+  /rescript/10.0.1:
+    resolution: {integrity: sha512-XwO1GPDtoEU4H03xQE5bp0/qtSVR6YLaJRPxWKrfFgKc+LI36ODOCie7o9UJfgzQdoMYkkZyiTGZ4N9OQEaiUw==}
     hasBin: true
     requiresBuild: true
     dev: true
