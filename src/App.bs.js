@@ -2,113 +2,52 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
-import * as Folders from "./Folders.bs.js";
-import * as Js_math from "rescript/lib/es6/js_math.js";
+import ReactSvg from "./assets/react.svg";
 
 import './App.css'
 ;
 
-var initState_rootFolder = {
-  id: 0,
-  name: "Root",
-  folders: [],
-  files: []
-};
-
-var initState = {
-  rootFolder: initState_rootFolder,
-  currentFolderId: 0,
-  newFolderInput: "",
-  newFileInput: ""
-};
-
-function reducer(state, action) {
-  if (typeof action === "number") {
-    return state;
-  }
-  switch (action.TAG | 0) {
-    case /* FolderSelected */0 :
-        var id = action._0;
-        console.log("ID+!", id);
-        return {
-                rootFolder: state.rootFolder,
-                currentFolderId: id,
-                newFolderInput: state.newFolderInput,
-                newFileInput: state.newFileInput
-              };
-    case /* NewFolderInput */1 :
-        return {
-                rootFolder: state.rootFolder,
-                currentFolderId: state.currentFolderId,
-                newFolderInput: action._0,
-                newFileInput: state.newFileInput
-              };
-    case /* NewFileInput */2 :
-        return {
-                rootFolder: state.rootFolder,
-                currentFolderId: state.currentFolderId,
-                newFolderInput: state.newFolderInput,
-                newFileInput: action._0
-              };
-    case /* AddFolder */3 :
-        return {
-                rootFolder: Folders.addFolder(action._0, state.currentFolderId, state.rootFolder),
-                currentFolderId: state.currentFolderId,
-                newFolderInput: state.newFolderInput,
-                newFileInput: state.newFileInput
-              };
-    
-  }
-}
+var reactLogo = ReactSvg;
 
 function App(Props) {
-  var match = React.useReducer(reducer, initState);
-  var dispatch = match[1];
-  var state = match[0];
-  console.log(state.currentFolderId);
-  console.log(state.rootFolder);
+  var match = React.useState(function () {
+        return 0;
+      });
+  var setCount = match[1];
   return React.createElement("div", {
               className: "App"
-            }, React.createElement("div", undefined, React.createElement("label", undefined, "New folder"), React.createElement("input", {
-                      value: state.newFolderInput,
-                      onChange: (function (e) {
-                          Curry._1(dispatch, {
-                                TAG: /* NewFolderInput */1,
-                                _0: e.target.value
-                              });
-                        })
-                    }), React.createElement("button", {
-                      type: "button",
+            }, React.createElement("div", undefined, React.createElement("a", {
+                      href: "https://vitejs.dev",
+                      target: "_blank"
+                    }, React.createElement("img", {
+                          className: "logo",
+                          alt: "Vite logo",
+                          src: "/vite.svg"
+                        })), React.createElement("a", {
+                      href: "https://reactjs.org",
+                      target: "_blank"
+                    }, React.createElement("img", {
+                          className: "logo react",
+                          alt: "React logo",
+                          src: reactLogo
+                        }))), React.createElement("h1", undefined, "Vite + React + ReScript"), React.createElement("div", {
+                  className: "card"
+                }, React.createElement("button", {
                       onClick: (function (param) {
-                          console.log("!!");
-                          Curry._1(dispatch, {
-                                TAG: /* AddFolder */3,
-                                _0: Js_math.random_int(1, 100000)
-                              });
+                          return Curry._1(setCount, (function (count) {
+                                        return count + 1 | 0;
+                                      }));
                         })
-                    }, "Add folder")), React.createElement("div", undefined, React.createElement("label", undefined, "New file"), React.createElement("input", {
-                      value: state.newFileInput,
-                      onChange: (function (e) {
-                          Curry._1(dispatch, {
-                                TAG: /* NewFileInput */2,
-                                _0: e.target.value
-                              });
-                        })
-                    }), React.createElement("button", {
-                      type: "button"
-                    }, "Add file")), React.createElement(Folders.Folder.make, Curry._4(Folders.Folder.makeProps, state.rootFolder, (function (id) {
-                        Curry._1(dispatch, {
-                              TAG: /* FolderSelected */0,
-                              _0: id
-                            });
-                      }), undefined, undefined)));
+                    }, "count is " + String(match[0])), React.createElement("p", undefined, "Edit ", React.createElement("code", undefined, "src/App.tsx"), " and save to test HMR")), React.createElement("p", {
+                  className: "read-the-docs"
+                }, "Click on the Vite and React logos to learn more"));
 }
 
 var make = App;
 
 export {
-  initState ,
-  reducer ,
+  reactLogo ,
   make ,
+  
 }
 /*  Not a pure module */

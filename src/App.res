@@ -1,80 +1,36 @@
 // import raw for just importing a css file
 %%raw("import './App.css'")
 
-type state = {
-  rootFolder: Folders.t,
-  currentFolderId: int,
-  newFolderInput: string,
-  newFileInput: string,
-}
+// import with @module for import interpo when you want to define a variable
+@module("./assets/react.svg") external reactLogo: string = "default"
 
-let initState = {
-  rootFolder: {
-    id: 0,
-    name: "Root",
-    folders: [],
-    files: [],
-  },
-  currentFolderId: 0,
-  newFolderInput: "",
-  newFileInput: "",
-}
-
-type actions =
-  FolderSelected(int) | NewFolderInput(string) | NewFileInput(string) | AddFolder(int) | AddFile
-
-let reducer = (state, action) => {
-  switch action {
-  | FolderSelected(id) => {
-      Js.log2("ID+!", id)
-      {...state, currentFolderId: id}
-    }
-
-  | NewFolderInput(newText) => {...state, newFolderInput: newText}
-  | NewFileInput(newText) => {...state, newFileInput: newText}
-  | AddFile => state
-  | AddFolder(id) => {
-      ...state,
-      rootFolder: Folders.addFolder(id, state.currentFolderId, state.rootFolder),
-    }
-  }
-}
-
+// @genType generates a tsx file for main.tsx to understand.
+// shouldn't be needed anywhere else unless interacting with TS again
 @react.component @genType
 let make = () => {
-  let (state, dispatch) = React.useReducer(reducer, initState)
-  Js.log(state.currentFolderId)
-  Js.log(state.rootFolder)
+  let (count, setCount) = React.useState(_ => 0)
   <div className="App">
     <div>
-      <label> {"New folder"->React.string} </label>
-      <input
-        value={state.newFolderInput}
-        onChange={e => {
-          ReactEvent.Form.target(e)["value"]->NewFolderInput->dispatch
-        }}
-      />
-      <button
-        type_="button"
-        onClick={_ => {
-          Js.log("!!")
-          dispatch(AddFolder(Js.Math.random_int(1, 100000)))
-        }}>
-        {"Add folder"->React.string}
+      <a href="https://vitejs.dev" target="_blank">
+        <img src="/vite.svg" className="logo" alt="Vite logo" />
+      </a>
+      <a href="https://reactjs.org" target="_blank">
+        <img src={reactLogo} className="logo react" alt="React logo" />
+      </a>
+    </div>
+    <h1> {"Vite + React + ReScript"->React.string} </h1>
+    <div className="card">
+      <button onClick={_ => setCount(count => count + 1)}>
+        {("count is " ++ Belt.Int.toString(count))->React.string}
       </button>
+      <p>
+        {"Edit "->React.string}
+        <code> {"src/App.tsx"->React.string} </code>
+        {" and save to test HMR"->React.string}
+      </p>
     </div>
-    <div>
-      <label> {"New file"->React.string} </label>
-      <input
-        value={state.newFileInput}
-        onChange={e => {
-          ReactEvent.Form.target(e)["value"]->NewFileInput->dispatch
-        }}
-      />
-      <button type_="button"> {"Add file"->React.string} </button>
-    </div>
-    <Folders.Folder
-      folder={state.rootFolder} selectFolder={(id: int) => id->FolderSelected->dispatch}
-    />
+    <p className="read-the-docs">
+      {"Click on the Vite and React logos to learn more"->React.string}
+    </p>
   </div>
 }
