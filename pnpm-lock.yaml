@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@rescript/react': ^0.10.3
+  '@rescript/react': ^0.11.0
   '@ryyppy/rescript-promise': ^2.1.0
   '@types/react': ^18.0.15
   '@types/react-dom': ^18.0.6
@@ -9,12 +9,12 @@ specifiers:
   gentype: ^4.5.0
   react: ^18.2.0
   react-dom: ^18.2.0
-  rescript: ^10.1.1
+  rescript: ^10.1.2
   typescript: ^4.6.4
   vite: ^3.0.0
 
 dependencies:
-  '@rescript/react': 0.10.3_biqbaboplfbrettd7655fr4n2y
+  '@rescript/react': 0.11.0_biqbaboplfbrettd7655fr4n2y
   '@ryyppy/rescript-promise': 2.1.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -24,7 +24,7 @@ devDependencies:
   '@types/react-dom': 18.0.6
   '@vitejs/plugin-react': 2.0.0_vite@3.0.0
   gentype: 4.5.0
-  rescript: 10.1.1
+  rescript: 10.1.2
   typescript: 4.7.4
   vite: 3.0.0
 
@@ -329,11 +329,11 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@rescript/react/0.10.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Lf9rzrR3bQPKJjOK3PBRa/B3xrJ7CqQ1HYr9VHPVxJidarIJJFZBhj0Dg1uZURX+Wg/xiP0PHFxXmdj2bK8Vxw==}
+  /@rescript/react/0.11.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-RzoAO+3cJwXE2D7yodMo4tBO2EkeDYCN/I/Sj/yRweI3S1CY1ZBOF/GMcVtjeIurJJt7KMveqQXTaRrqoGZBBg==}
     peerDependencies:
-      react: '>=16.8.1'
-      react-dom: '>=16.8.1'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -796,8 +796,8 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
-  /rescript/10.1.1:
-    resolution: {integrity: sha512-6rwFNt+A1VqD34L/9T95TKh22zyT0Cs5VUWCQnFblBNsUfz5mFdUSNvdOFf1Nbiz8NaQJGwhLKKjzxsF/pbbLg==}
+  /rescript/10.1.2:
+    resolution: {integrity: sha512-PPdhOiN+lwqxQ0qvzHc1KW0TL12LDy2X+qo/JIMIP3bMfiH0vxQH2e/lXuoutWWm04fGQGTv3hWH+gKW3/UyfA==}
     hasBin: true
     requiresBuild: true
     dev: true
